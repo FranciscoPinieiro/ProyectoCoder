@@ -12,12 +12,16 @@ def curso(self):
     return HttpResponse(documentoDeTexto)
 
 def inicio(request):
-    return HttpResponse('vista inicio')
+    return render(request, "AppCoder/inicio.html")
 def cursos(request):
-    return HttpResponse('vista cursos')
+
+    lista = Curso.objects.all()
+
+    return render(request, "AppCoder/cursos.html", {"lista": lista})
+
 def profesores(request):
-    return HttpResponse('vista profesores')
+    return render(request, "AppCoder/profesores.html")
 def estudiantes(request):
-    return HttpResponse('vista estudiantes')
+    return render(request, "AppCoder/estudiantes.html")
 def entregables(request):
-    return HttpResponse('vista entregables')
+    return render(request, "AppCoder/entregables.html")
